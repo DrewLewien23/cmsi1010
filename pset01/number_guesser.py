@@ -35,32 +35,36 @@
 
 import random
 
-n = random.randint(1, 1000)
-
 guesses = 0
 
-response = int(input("Please guess a number between one and one thousand! Type 'bye' or 'exit' to quit the program "))
+for i in range (5):
 
-while True: 
-  if response == "bye":
-    print("Goodbye!")
-    break
+  n = random.randint(1, 1000)
 
-  if response == "exit":
-    print("Goodbye!")
-    break
+  response = input("Please guess a number between one and one thousand! Type 'bye' or 'exit' to quit the program ")
 
-  if response > n:
-    print("Too high!")
-    response = int(input("Please guess a number! Type 'bye' or 'exit' to quit the program "))
-    guesses += 1
+  while True: 
 
-  if response < n:
-    print("Too low!")
-    response = int(input("Please guess a number! Type 'bye' or 'exit' to quit the program "))
-    guesses += 1
+    if response == "bye":
+      print("Goodbye!")
+      break
 
-  if response == n:
-    print("Congratulations! You guessed the number!")
-    print("It took you", guesses, "guesses")
-    break
+    if response == "exit":
+      print("Goodbye!")
+      break
+
+    if int(response) > n:
+      print("Too high!")
+      response = input("Please guess a number! Type 'bye' or 'exit' to quit the program ")
+      guesses += 1
+
+    if int(response) < n:
+      print("Too low!")
+      response = input("Please guess a number! Type 'bye' or 'exit' to quit the program ")
+      guesses += 1
+
+    if int(response) == n:
+      print("Congratulations! You guessed the number!")
+      print("It took you", guesses, "guesses")
+      guesses = 1
+      break
