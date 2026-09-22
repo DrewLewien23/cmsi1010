@@ -28,7 +28,7 @@ def print_square(n):
     ***
     """
     # replace the pass statement with your code
-    print("hello")
+    pass
 
 def is_odd(n):
     """
