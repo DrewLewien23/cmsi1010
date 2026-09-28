@@ -1,24 +1,3 @@
-# ----------------------------------------------------------------------
-# This is the file functions_cardio.py
-#
-# The intent is to give you practice writing functions.
-#
-# Complete the functions below.
-#
-# Each function has a docstring that describes what it should do, but
-# please see the unit tests at the bottom of the file for more
-# specific examples of what each function should return.
-#
-# Do not change the tests at the bottom of the file. They are there for
-# you to check your work. Just run this file with `python` or `python3`
-# (whichever works for your system).
-#
-# Remove this comment, and all of the "replace the pass statement..."
-# comments, prior to submission. You can, and should, add your own
-# comments, but please remove all the comments that are here now.
-# ----------------------------------------------------------------------
-
-
 def print_square(n):
     """
     Print a square of asterisks with side length n.
@@ -29,7 +8,8 @@ def print_square(n):
     ***
     """
     # replace the pass statement with your code
-    pass
+    for i in range(n):
+        print("*" * n)
 
 
 def is_odd(n):
@@ -45,7 +25,7 @@ def median_of_three(a, b, c):
     Return the median of three numbers a, b, and c.
     """
     # replace the pass statement with your code
-    pass
+    return sorted([a, b, c])[1]
 
 
 def is_palindrome(s):
@@ -57,7 +37,10 @@ def is_palindrome(s):
     reversal.
     """
     # replace the pass statement with your code
-    pass
+    if (s == s[:: - 1]):
+        return True
+    else:
+        return False
 
 
 def factorial(n):
@@ -82,8 +65,14 @@ def count_of_latin_vowels(s):
     The vowels are 'a', 'e', 'i', 'o', and 'u'. You can implement this
     function using a for loop to iterate through the string.
     """
-    # replace the pass statement with your code
-    pass
+    vowels = "aeiou"
+    count = 0
+    
+    for char in s.lower():
+        if char in vowels:
+            count += 1
+            
+    return count
 
 
 def at_beginning_or_end(part, whole):
@@ -91,8 +80,10 @@ def at_beginning_or_end(part, whole):
     Return True if the part is a prefix or a suffix of whole.
     """
     # replace the pass statement with your code
-    pass
-
+    if whole.startswith(part) or whole.endswith(part):
+        return True
+    else:
+        return False
 
 def longest_string(strings):
     """
@@ -102,7 +93,8 @@ def longest_string(strings):
     the first one encountered.
     """
     # replace the pass statement with your code
-    pass
+    longest = max(strings, key=len)
+    return longest
 
 
 def collatz(n):
@@ -115,7 +107,18 @@ def collatz(n):
     - The sequence ends when it reaches 1.
     """
     # replace the pass statement with your code
-    pass
+    if n < 1:
+        return []  
+    
+    sequence = [n]
+    while n > 1:
+        if n % 2 == 0:
+            n = n // 2     
+        else:
+            n = 3 * n + 1  
+        sequence.append(n)
+        
+    return sequence
 
 
 def test_print_square():
@@ -207,13 +210,13 @@ def test_collatz():
     ]
 
 
-#test_print_square()
+test_print_square()
 test_is_odd()
-#test_median_of_three()
+test_median_of_three()
 test_factorial()
-#test_is_palindrome()
-#test_count_of_latin_vowels()
-#test_at_beginning_or_end()
-#test_longest_string()
-#test_collatz()
+test_is_palindrome()
+test_count_of_latin_vowels()
+test_at_beginning_or_end()
+test_longest_string()
+test_collatz()
 print("All tests passed!")
