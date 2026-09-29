@@ -11,13 +11,17 @@ for i in range (1000):
 
   while True: 
 
-    if response == "bye":
+    if str(response) == "bye":
       print("Goodbye!")
       sys.exit()
 
-    if response == "exit":
+    if str(response) == "exit":
       print("Goodbye!")
       sys.exit()
+
+    if not any(char.isdigit() for char in response):
+      print("That's not a number! You silly goofball.")
+      break
 
     if int(response) > n:
       print("Too high!")
