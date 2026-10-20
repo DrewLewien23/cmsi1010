@@ -1,14 +1,4 @@
-# ----------------------------------------------------------------------
-# This is the file mad_libs.py
-#
-# The intent is to give you practice writing a complete, interactive
-# Python program using a lot of Python data types, especially lists,
-# sets, and dictionaries.
-#
-# Remove ALL of the existing comments in this file prior to submission.
-# You can, and should, add your own comments, but please remove all the
-# comments that are here now.
-#
+# ---------------------------------------------------------------------
 # Things to do:
 #
 # Define a bunch of templates in which some of the words begin with a colon (:).
@@ -43,25 +33,47 @@
 # ----------------------------------------------------------------------
 
 import random
+import sys
 
-templates = {
+adjective = input("enter adjective ") 
+creature = input("enter creature ")
+weapon = input("enter weapon ")
+dessert = input("enter dessert ")
+adverb = input("enter adverb ")
+verb = input("please enter a verb ")
+noun = input("please enter a noun ")
+place = input("please enter a place ")
+
+if len(adjective or creature or weapon or dessert or adverb or verb or noun or place) > 30:
+  print("too long!")
+  sys.exit()
+
+templates = [
   {
-    "text": "A :adjective ghost is behind you!",
-    "author": "rtoal"
+    "text": f"A {adjective} ghost is behind you!", 
+    "Written by": "rtoal"
   }, 
   {
-    "text": "Some :adjective :creature with a :weapon is eating :dessert",
-    "author": "rtoal"
+    "text": f"Some {adjective} :creature with a :weapon is eating {dessert}",
+    "Written by": "rtoal"
   },
   {
-    "text": "Look! There is a :adverb :adjective :verb a :noun in :place",
-    "author": "The whole class"
+    "text": f"Look! There is a {adverb} {adjective} {verb} a {noun} in {place}",
+    "Written by": "The whole class"
   }
- 
-}
+]
 
 yes_answers = {"yes", "si", "oui", "yup", "bet", "yep", "Y"}
 
 current_template = random.choice(templates)
-print(current_template)
 
+print(current_template)
+print("")
+
+again = input("do you want to play again? ")
+
+if again in yes_answers:
+  print("play again")
+else: 
+  print("Okay! Bye!")
+  sys.exit()

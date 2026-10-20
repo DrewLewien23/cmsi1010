@@ -1,3 +1,5 @@
+from collections import Counter
+
 def third_element(t):
     """
     If t is a tuple with at least three elements, return the third
@@ -116,15 +118,28 @@ def most_frequent_value_or_values(d):
     if not isinstance(d, dict):
         raise TypeError
     
+    if not d:
+        return set()
 
+    counts = Counter(d.values())
+    max_count = max(counts.values())
 
+    return {val for val, count in counts.items() if count == max_count}
+    
 def key_is_in_both_dictionaries(d1, d2, key):
     """
     Return True if the key is present in both dictionaries d1 and d2,
     and False otherwise. If either d1 or d2 is not a dictionary,
     raise a TypeError.
     """
-    pass
+    if not isinstance(d1, dict):
+        raise TypeError
+    if not isinstance(d2, dict):
+        raise TypeError
+    if key in d1 and key in d2:
+        return True
+    else:
+        return False
 
 
 def word_frequencies(s):
@@ -138,8 +153,12 @@ def word_frequencies(s):
 
     If s is not a string, raise a TypeError.
     """
-    pass
 
+    if not isinstance(s, str): 
+        raise TypeError 
+    
+    return dict(Counter(s.split()))
+    
 
 def _assert_raises(exception_type, func, *args):
     try:
@@ -252,7 +271,7 @@ test_contains_duplicates()
 test_is_superset()
 test_is_subset()
 test_is_disjoint()
-#test_most_frequent_value_or_values()
-#test_key_is_in_both_dictionaries()
-#test_word_frequencies()
+test_most_frequent_value_or_values()
+test_key_is_in_both_dictionaries()
+test_word_frequencies()
 print("All tests passed!")
