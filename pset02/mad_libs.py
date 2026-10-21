@@ -1,79 +1,78 @@
-# ---------------------------------------------------------------------
-# Things to do:
-#
-# Define a bunch of templates in which some of the words begin with a colon (:).
-# The words that begin with a colon are the words that you will ask the user
-# to fill in. An example of a template is:
-#
-#     "The :color :animal :action over the :adjective :plant."
-#
-# You should define a list of at least 10 templates. Be creative!
-#
-# Your app should begin by selecting a random template. Then, for each word
-# that begins with a colon in the template, prompt the user for a word
-# that fits the description. Make sure that their input is between 1 and 30
-# characters long, to prevent them from making too much of a mess of things.
-#
-# After the user has filled in all of the words, print the completed
-# template with the user's words filled in. Then after a blank line, print
-# a line crediting the author of the template. Then, print a couple of blank
-# lines and ask them if they want to play again. If they say "yes" (or "sí"
-# or "oui") or any acceptable version of an affirmative answer, start over
-# with a new random template. Otherwise, say "no", print "Thanks for playing!"
-# and exit the program.
-#
-# Here are some constraints:
-#
-#   1. The templates should be a list of dictionaries, in which each entry
-#      has a "text" fields and an "author" field. The "text" field should
-#      contain the template string, and the "author" field should contain
-#      the name of the person who wrote the template.
-#
-#   2. The possible "yes" answers should be stored in a set.
-# ----------------------------------------------------------------------
-
 import random
 import sys
 
-adjective = input("enter adjective ") 
-creature = input("enter creature ")
-weapon = input("enter weapon ")
-dessert = input("enter dessert ")
-adverb = input("enter adverb ")
-verb = input("please enter a verb ")
-noun = input("please enter a noun ")
-place = input("please enter a place ")
+while True:
+  print("Welcome to madlibs! Please answer the questions and you will get three madlibs!")
 
-if len(adjective or creature or weapon or dessert or adverb or verb or noun or place) > 30:
-  print("too long!")
-  sys.exit()
+  adjective = input("please enter an adjective ") 
+  creature = input("please enter a creature ")
+  weapon = input("please enter a weapon ")
+  dessert = input("please enter a dessert ")
+  adverb = input("please enter an adverb ")
+  verb = input("please enter a verb ")
+  noun = input("please enter a noun ")
+  place = input("please enter a place ")
 
-templates = [
-  {
-    "text": f"A {adjective} ghost is behind you!", 
-    "Written by": "rtoal"
-  }, 
-  {
-    "text": f"Some {adjective} :creature with a :weapon is eating {dessert}",
-    "Written by": "rtoal"
-  },
-  {
-    "text": f"Look! There is a {adverb} {adjective} {verb} a {noun} in {place}",
-    "Written by": "The whole class"
-  }
-]
+  if len(adjective or creature or weapon or dessert or adverb or verb or noun or place) > 30:
+    print("too long!")
+    sys.exit()
 
-yes_answers = {"yes", "si", "oui", "yup", "bet", "yep", "Y"}
+  templates = [
+    {
+      "text": f"A {adjective} ghost is behind you!", 
+      "Written by": "rtoal"
+    }, 
+    {
+      "text": f"Some {adjective} {creature} with a {weapon} is eating {dessert}",
+      "Written by": "rtoal"
+    },
+    {
+      "text": f"Look! There is a {adverb} {adjective} {verb} a {noun} in {place}",
+      "Written by": "The whole class"
+    }, 
+    {
+      "text": f"Watch out for the {creature}! It's headed towards {place}.", 
+      "Written by": "drew" 
+    }, 
+    {
+      "text": f"The {adjective} {weapon} killed the biiiig {creature}", 
+      "Written by": "drew"
+    },
+    {
+      "text": f"You ate {dessert} at {place}",
+      "Written by": "drew"
+    },
+    {
+      "text": f"Look at the {noun} that is lowkey {adjective}. Run! Do it {adverb}!",
+      "Written by": "drew"
+    },
+    {
+      "text": f"GET OUT OF THERE! IT'S A {creature}!!",
+      "Written by": "drew"
+    },
+    {
+      "text": f"That {place} is {adjective}",
+      "Written by": "drew"
+    },
+    {
+      "text": f"I bet you wish you got a madlib, didn't you?",
+      "Written by": "drew"
+    },
+  ]
 
-current_template = random.choice(templates)
+  for i in range(3):
+    current_template = random.choice(templates)
+    print(current_template) 
 
-print(current_template)
-print("")
+  print("")
 
-again = input("do you want to play again? ")
+  again = input("do you want to play again? ")
 
-if again in yes_answers:
-  print("play again")
-else: 
-  print("Okay! Bye!")
-  sys.exit()
+  yes_answers = {"yes", "si", "oui", "yup", "bet", "yep", "Y"}
+
+  if again in yes_answers:
+    print("")
+    print("Playing again!")
+  else: 
+    print("Okay! Bye!")
+    sys.exit()
