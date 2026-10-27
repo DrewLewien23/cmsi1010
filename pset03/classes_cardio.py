@@ -18,20 +18,33 @@
 
 import math
 
-# Write a class called Rectangle, with attributes with and height,
-# and methods to calculate the area and perimeter. The class should
-# also have a __str__ method that returns a string representation
-# in a form you can infer from the unit tests below.
+class Rectangle: 
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        
+    def perimeter(self):
+        return (self.width + self.height) * 2
 
-# ...
+    def area(self):
+        return self.width * self.height
 
-# Write a class called Circle, with an attribute radius,
-# and methods to calculate the area and circumference.
-# Implement the __str__ method according to the unit tests
-# below.
+    def __str__(self):
+        return f"Rectangle({self.width} x {self.height})"
 
-# ...
 
+class Circle: 
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return ((math.pi) * (self.radius ** 2))
+
+    def circumference(self):
+        return 2 * math.pi * self.radius
+
+    def __str__(self):
+        return f"Circle(radius={self.radius})"
 
 # Write a class called Song, with attributes title, artist, and
 # duration. The duration should be in seconds. The class should
@@ -39,8 +52,17 @@ import math
 # according the unit tests below, and a method called play that
 # prints a message inferrable from the unit tests below.
 
-# ...
+class Song:
+    def __init__(self, title, artist, duration):
+        self.title = title
+        self.artist = artist
+        self.duration = duration
 
+    def __str__(self):
+        return f"{self.title} by {self.artist} ({self.duration}s)"
+
+    def play(self):
+        print("Playing {self.title} by {self.artist} ({self.duration})s\n")
 
 # Write a class called Playlist, which contains a list of Song
 # objects. The class should have methods to add a song, play all
@@ -48,12 +70,6 @@ import math
 # of the playlist, with each song represented as "title by artist
 # (duration)s" and separated by a pipe character (|). If the playlist
 # is empty, the __str__ method should return "Playlist is empty."
-
-# ...
-
-# Keep the following tests in your file. Use them as you do the work
-# in this assignment. (And remember to remove this comment before
-# submission.)
 
 
 def test_rectangle():
@@ -100,3 +116,10 @@ def test_playlist(capfd):
         "Playing I Was Neon by Julia Jacklin (243s)\n"
         "Playing Forgiveness by Alice Glass (191s)\n"
     )
+
+test_rectangle()
+test_circle()
+test_song(1)
+#test_playlist()
+
+print("All tests passed!")

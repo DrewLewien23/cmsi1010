@@ -86,3 +86,5 @@ p4 = Person("Jacques Martinez")
 p1 = Person("Adele Martinez", mom=p3, dad=p4)
 p2 = Person("Joseph Martinez", mom=p3, dad=p4)
 print(p1.is_sibling_of(p2))
+
+leo.print_family_tree()
