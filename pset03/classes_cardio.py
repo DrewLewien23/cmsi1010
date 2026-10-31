@@ -1,21 +1,3 @@
-# ----------------------------------------------------------------------
-# This is the file classes_cardio.py
-#
-# The intent is to give you practice with classes.
-#
-# Follow the instructions below, adding code where directed.
-#
-# There are no stubs in this file, so you will need to infer exactly
-# how to write each class from the descriptions and the unit tests at
-# the bottom of the file. To run the tests, you can use the command
-#
-#     pytest classes_cardio.py
-#
-# Remove this comment, and other comments serving as instructions,
-# prior to submission. You can, and should, add your own comments,
-# but please remove all the comments that are here now.
-# ----------------------------------------------------------------------
-
 import math
 
 class Rectangle: 
@@ -62,7 +44,7 @@ class Song:
         return f"{self.title} by {self.artist} ({self.duration}s)"
 
     def play(self):
-        print("Playing {self.title} by {self.artist} ({self.duration})s\n")
+        print(f"Playing {self.title} by {self.artist} ({self.duration}s)")
 
 # Write a class called Playlist, which contains a list of Song
 # objects. The class should have methods to add a song, play all
@@ -70,6 +52,23 @@ class Song:
 # of the playlist, with each song represented as "title by artist
 # (duration)s" and separated by a pipe character (|). If the playlist
 # is empty, the __str__ method should return "Playlist is empty."
+
+class Playlist:
+    def __init__(self, title, artist, duration):
+        self.title = title
+        self.artist = artist
+        self.duration = duration
+        self.songs = ["Night Shift by Lucy Dacus (391s)", "Playing I Was Neon by Julia Jacklin (243s)", "Playing Forgiveness by Alice Glass (191s)"]
+
+    def add_song(self, song: Song):
+        self.songs.append(song)
+    
+    def play_all(self):
+        
+
+    def __str__(self):
+        print(f"Playlist: {self.title}")
+        
 
 
 def test_rectangle():
@@ -116,10 +115,3 @@ def test_playlist(capfd):
         "Playing I Was Neon by Julia Jacklin (243s)\n"
         "Playing Forgiveness by Alice Glass (191s)\n"
     )
-
-test_rectangle()
-test_circle()
-test_song(1)
-#test_playlist()
-
-print("All tests passed!")

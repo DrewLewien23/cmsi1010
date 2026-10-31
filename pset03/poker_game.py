@@ -16,9 +16,6 @@
 # your program should print an error message and prompt the user again
 # for a valid number of players.
 #
-# Remove ALL of the existing comments in this file prior to submission.
-# You can, and should, add your own comments, but please remove all the
-# comments that are here now.
 #
 # Remember that for this assignment, you will also be creating a module
 # for cards in cards.py. You will have to figure out the import
@@ -41,3 +38,18 @@
 #
 # Enter the number of players(2-10): bye
 # ----------------------------------------------------------------------
+
+import math
+import sys
+
+while True:
+  players = input("How many players today?!")
+    if int(players > 2 and players < 10):
+      #deal hand
+    if int(players < 2 or players > 10):
+      print("That number isn't valid! Try again.")
+    if str(players) == "bye" or str(players) == "exit":
+      print("Goodbye!")
+      sys.exit()
+      
+
