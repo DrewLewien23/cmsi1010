@@ -54,21 +54,25 @@ class Song:
 # is empty, the __str__ method should return "Playlist is empty."
 
 class Playlist:
-    def __init__(self, title, artist, duration):
-        self.title = title
-        self.artist = artist
-        self.duration = duration
-        self.songs = ["Night Shift by Lucy Dacus (391s)", "Playing I Was Neon by Julia Jacklin (243s)", "Playing Forgiveness by Alice Glass (191s)"]
+
+    def __init__(self, name):
+        self.name = name
+        self.songs = []
 
     def add_song(self, song: Song):
         self.songs.append(song)
-    
-    def play_all(self):
-        
 
-    def __str__(self):
-        print(f"Playlist: {self.title}")
+            
+    def play_all(self):
+        for song in self.songs:
+            print(f"Now playing: {song}")
+
+    def __str__(self):    
+        if not self.songs:
+            print(f"The playlist '{self.name}' is empty.")
+            return
         
+        return f"{self.title} by {self.artist} ({self.duration}s)"
 
 
 def test_rectangle():

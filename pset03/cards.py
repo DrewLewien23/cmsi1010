@@ -38,9 +38,23 @@ def deal_one_five_card_hand():
 def deal(number_of_hands, cards_per_hand):
     # Return a list of sets, each containing the cards for one hand.
     # You must validate the input parameters according to the test
-    # cases that you will find in cards_test.py. Make sure to remove
-    # this comment and the pass statement below before submitting.
-    pass
+    # cases that you will find in cards_test.py. 
+    if not isinstance(number_of_hands, int):
+        raise TypeError("hands must be int")
+    if not isinstance(cards_per_hand, int):
+        raise TypeError("cards per hand must be an int")
+    if not number_of_hands < 1:
+        raise ValueError("Need a postive number of hands")
+    if cards_per_hand < 1: 
+        raise ValueError("Need a postive number of cards per hand")
+    if number_of_hands * cards_per_hand > 52:
+        raise ValueError("I don't have that many cards")
+    result = []
+    for hand in range(number_of_hands):
+
+        #fill this in
+
+    return result
 
 
 def poker_classification(hand):
@@ -52,7 +66,4 @@ def poker_classification(hand):
     # "High Card", "One Pair", "Two Pair", "Three of a Kind",
     # "Straight", "Flush", "Full House", "Four of a Kind",
     # "Straight Flush", "Royal Flush"
-    #
-    # Make sure to remove this comment and the pass statement below
-    # before submitting.
     pass

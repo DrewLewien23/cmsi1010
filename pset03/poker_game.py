@@ -51,5 +51,3 @@ while True:
     if str(players) == "bye" or str(players) == "exit":
       print("Goodbye!")
       sys.exit()
-      
-
