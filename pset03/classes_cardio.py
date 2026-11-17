@@ -55,24 +55,28 @@ class Song:
 
 class Playlist:
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, song1="Night Shift by Lucy Dacus (391s)", song2="I Was Neon by Julia Jacklin (243s)", song3="Forgiveness by Alice Glass (191s)"):
+        self.song1 = song1
+        self.song2 = song2
+        self.song3 = song3
         self.songs = []
 
     def add_song(self, song: Song):
-        self.songs.append(song)
+        if isinstance(song, Song):
+            self.songs.append(song)
+        else:
+            raise TypeError("Only Song objects can be added to the playlist.")
 
-            
     def play_all(self):
         for song in self.songs:
-            print(f"Now playing: {song}")
+            print(f"Playing {song}")
 
     def __str__(self):    
         if not self.songs:
             print(f"The playlist '{self.name}' is empty.")
             return
-        
-        return f"{self.title} by {self.artist} ({self.duration}s)"
+        else:
+            return f"{self.song1}|{self.song2}|{self.song3}"
 
 
 def test_rectangle():

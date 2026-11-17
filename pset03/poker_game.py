@@ -42,12 +42,12 @@
 import math
 import sys
 
-while True:
-  players = input("How many players today?!")
-    if int(players > 2 and players < 10):
-      #deal hand
-    if int(players < 2 or players > 10):
-      print("That number isn't valid! Try again.")
-    if str(players) == "bye" or str(players) == "exit":
-      print("Goodbye!")
-      sys.exit()
+# while True:
+#   players = input("How many players today?!")
+#     if int(players > 2 and players < 10):
+#       #deal hand
+#     if int(players < 2 or players > 10):
+#       print("That number isn't valid! Try again.")
+#     if str(players) == "bye" or str(players) == "exit":
+#       print("Goodbye!")
+#       sys.exit()
